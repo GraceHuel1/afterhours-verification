@@ -211,4 +211,26 @@ app.post("/auth/logout", (_req, res) => {
   res.clearCookie("ah_session", cookieOptions);
   res.redirect(303, "/");
 });
+app.get("/privacy", (req, res) => {
+  res.send(`
+    <html>
+      <head>
+        <title>AFTERHOURS | Privacy Policy</title>
+      </head>
+      <body style="background:#0d090e;color:#ff91c3;font-family:Arial;padding:40px;">
+        <h1>AFTERHOURS Privacy Policy</h1>
+        <p>Our Discord verification service processes
+        Discord user IDs and verification information
+        to authenticate members and assign roles.</p>
+        <p>For privacy questions or data requests,
+        contact our moderation team through
+        <a href="https://discord.gg/4zxdjFF5K">
+        AFTERHOURS Discord</a>.</p>
+      </body>
+    </html>
+  `);
+});
+app.listen(PORT, "0.0.0.0", () =>
+  console.log(`AFTERHOURS site listening on ${PORT}`)
+);
 app.listen(PORT, "0.0.0.0", () => console.log(`AFTERHOURS site listening on ${PORT}`));
