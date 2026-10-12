@@ -10,12 +10,18 @@ const PORT = Number(process.env.PORT || 10000);
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
 const CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET;
 const REDIRECT_URI = process.env.DISCORD_REDIRECT_URI;
+const BOT_TOKEN = process.env.DISCORD_BOT_TOKEN;
+const GUILD_ID = process.env.DISCORD_GUILD_ID;
+const VERIFIED_ROLE_ID = process.env.DISCORD_VERIFIED_ROLE_ID;
 const SESSION_SECRET = process.env.SESSION_SECRET;
 const PROD = process.env.NODE_ENV === "production";
 
 for (const [key, value] of Object.entries({
   DISCORD_CLIENT_ID: CLIENT_ID, DISCORD_CLIENT_SECRET: CLIENT_SECRET,
   DISCORD_REDIRECT_URI: REDIRECT_URI, SESSION_SECRET
+  DISCORD_BOT_TOKEN: BOT_TOKEN,
+DISCORD_GUILD_ID: GUILD_ID,
+DISCORD_VERIFIED_ROLE_ID: VERIFIED_ROLE_ID,
 })) {
   if (!value) { console.error(`Missing environment variable: ${key}`); process.exit(1); }
 }
