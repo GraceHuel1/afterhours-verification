@@ -141,6 +141,50 @@ app.get("/auth/discord/callback", async (req, res) => {
     }
     const user = await userRes.json();
     if (!user.id || !user.username) throw new Error("Incomplete Discord profile");
+        // Confirm the authenticated Discord user is already in AFTERHOURS.
+    const memberRes = await fetch(
+      `https://discord.com/api/v10/guilds/${GUILD_ID}/members/${user.id}`,
+      {
+        headers: { Authorization: `Bot ${BOT_TOKEN}` },
+        signal: AbortSignal.timeout(10000)
+      }
+    );
+
+    if (memberRes.status === 404) {
+      return res.status(403).send(resultPage(
+        "Join AFTERHOURS first",
+        "You need to join the AFTERHOURS Discord server before verifying."
+      ));
+    }
+
+    if (!memberRes.ok) {
+      console.error("Discord member check status:", memberRes.status);
+      return res.status(502).send(resultPage(
+        "Verification unavailable",
+        "We couldn't check your server membership. Please try again later."
+      ));
+    }
+
+    // Assign the Verified role using the bot.
+    const roleRes = await fetch(
+      `https://discord.com/api/v10/guilds/${GUILD_ID}/members/${user.id}/roles/${VERIFIED_ROLE_ID}`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bot ${BOT_TOKEN}`,
+          "X-Audit-Log-Reason": "Member completed AFTERHOURS website verification"
+        },
+        signal: AbortSignal.timeout(10000)
+      }
+    );
+
+    if (!roleRes.ok) {
+      console.error("Discord role assignment status:", roleRes.status);
+      return res.status(502).send(resultPage(
+        "Role assignment failed",
+        "Your identity was confirmed, but we couldn't assign the Verified role. Please contact an AFTERHOURS moderator."
+      ));
+    }
     const avatar = user.avatar
       ? `https://cdn.discordapp.com/avatars/${encodeURIComponent(user.id)}/${encodeURIComponent(user.avatar)}.png?size=128`
       : "";
