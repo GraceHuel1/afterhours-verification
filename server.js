@@ -194,7 +194,7 @@ app.get("/auth/discord/callback", async (req, res) => {
     }, 3600);
     // The access token is intentionally not stored or logged.
     res.set("Cache-Control", "no-store");
-    return res.send(resultPage("Identity confirmed", "Your Discord identity has been authenticated successfully.", {
+    return res.send(resultPage("You're verified!", "Your Discord identity is confirmed and your Verified role has been assigned.", {
       name: user.global_name || user.username, avatar
     }));
   } catch (e) {
