@@ -88,7 +88,7 @@ function resultPage(title, message, user = null) {
   <section class="card result"><div class="brand-mark">୨୧</div><p class="eyebrow">AFTERHOURS · MEMBER PORTAL</p>
   ${avatar}<h1>${escapeHtml(title)}</h1><p class="subtitle">${escapeHtml(message)}</p>${name}
   <a class="button secondary" href="/">Return home</a>
-    <p class="fineprint">AFTERHOURS · Discord verification</p></section></main></body></html>`;    <p class="fineprint">AFTERHOURS · Discord verification</p></section></main></body></html>`;    <p class="fineprint">AFTERHOURS · Discord verification</p></section></main></body></html>`;
+    <p class="fineprint">AFTERHOURS · Discord verification</p></section></main></body></html>`;    <p class="fineprint">AFTERHOURS · Discord verification</p></section></main></body></html>`;    <p class="fineprint">AFTERHOURS · Discord verification</p></section></main></body></html>`;    <p class="fineprint">AFTERHOURS · Discord verification</p></section></main></body></html>`;    <p class="fineprint">AFTERHOURS · Discord verification</p></section></main></body></html>`;    <p class="fineprint">AFTERHOURS · Discord verification</p></section></main></body></html>`;    <p class="fineprint">AFTERHOURS · Discord verification</p></section></main></body></html>`;    <p class="fineprint">AFTERHOURS · Discord verification</p></section></main></body></html>`;    <p class="fineprint">AFTERHOURS · Discord verification</p></section></main></body></html>`;
 }
 
 app.get("/healthz", (_req, res) => res.status(200).send("ok"));
