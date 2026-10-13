@@ -164,4 +164,165 @@ app.post("/auth/logout", (_req, res) => {
   res.clearCookie("ah_session", cookieOptions);
   res.redirect(303, "/");
 });
+app.get("/privacy", (req, res) => {
+  res.set("Cache-Control", "public, max-age=300");
+  res.type("html").send(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10080f">
+  <title>Privacy Policy | AFTERHOURS</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      background: #10080f;
+      color: #f9eaf3;
+      font-family: Arial, sans-serif;
+      line-height: 1.8;
+      margin: 0;
+    }
+    .privacy-container {
+      max-width: 780px;
+      margin: 60px auto;
+      padding: 35px;
+      background: #1b101a;
+      border: 1px solid #66334f;
+      border-radius: 20px;
+    }
+    h1, h2 { color: #ff91c3; }
+    h1 { text-align: center; }
+    h2 { margin-top: 30px; }
+    .subtitle {
+      text-align: center;
+      color: #c9a4b9;
+    }
+    a { color: #ff91c3; }
+    footer {
+      text-align: center;
+      color: #b99aaa;
+      margin-top: 40px;
+    }
+    @media(max-width: 600px) {
+      .privacy-container {
+        margin: 15px;
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="privacy-container">
+    <h1>୨୧ AFTERHOURS</h1>
+    <p class="subtitle">PRIVACY POLICY</p>
+    <p class="subtitle">Last updated: October 13, 2026</p>
+
+    <h2>1. Introduction</h2>
+    <p>
+      Welcome to AFTERHOURS. We respect your privacy.
+      This policy explains how our Discord identity
+      verification service processes your information.
+    </p>
+
+    <h2>2. Information We Process</h2>
+    <p>
+      When you authorize our verification service
+      through Discord OAuth2, we process:
+    </p>
+    <ul>
+      <li>Discord User ID</li>
+      <li>Discord username</li>
+      <li>Discord display name</li>
+      <li>Discord avatar information</li>
+      <li>Temporary authentication information</li>
+    </ul>
+
+    <h2>3. How We Use Information</h2>
+    <p>
+      We use this information to authenticate your
+      Discord identity, display verification results,
+      and maintain a temporary authenticated session.
+    </p>
+
+    <h2>4. Cookies and Sessions</h2>
+    <p>
+      Our website uses temporary cookies for OAuth2
+      security and authenticated sessions.
+      The authentication state cookie lasts up to
+      10 minutes. The session cookie lasts up to
+      60 minutes.
+    </p>
+
+    <h2>5. Discord Access Tokens</h2>
+    <p>
+      Discord access tokens are used to retrieve
+      your Discord identity. Our application does
+      not intentionally store or log these tokens.
+    </p>
+
+    <h2>6. Data Sharing</h2>
+    <p>
+      We do not sell your personal information.
+      Discord and our hosting provider may process
+      information necessary to operate this service.
+    </p>
+
+    <h2>7. Data Retention</h2>
+    <p>
+      Authentication cookies expire automatically.
+      Additional technical records may be retained
+      by service providers according to their
+      applicable policies.
+    </p>
+
+    <h2>8. Security</h2>
+    <p>
+      We use security measures including signed
+      cookies, OAuth2 state validation, HTTPS
+      in production, and request rate limiting.
+    </p>
+
+    <h2>9. Your Privacy Rights</h2>
+    <p>
+      You may contact our team to request
+      information about personal data processed
+      by our service, or request its deletion,
+      subject to applicable law.
+    </p>
+
+    <h2>10. Third-Party Services</h2>
+    <p>
+      Our website uses Discord OAuth2 and
+      Render hosting. These providers have
+      their own privacy policies.
+    </p>
+
+    <h2>11. Policy Changes</h2>
+    <p>
+      We may update this Privacy Policy.
+      The latest version will be available
+      on this page.
+    </p>
+
+    <h2>12. Contact</h2>
+    <p>
+      For privacy questions or data requests,
+      contact the AFTERHOURS moderation team:
+    </p>
+    <p>
+      <a href="https://discord.gg/4zxdjFF5K">
+        Join AFTERHOURS on Discord
+      </a>
+    </p>
+
+    <footer>
+      © 2026 AFTERHOURS · All rights reserved
+    </footer>
+  </main>
+</body>
+</html>
+  `);
+});
+
 app.listen(PORT, "0.0.0.0", () => console.log(`AFTERHOURS site listening on ${PORT}`));
