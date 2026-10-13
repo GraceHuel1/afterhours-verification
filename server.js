@@ -325,4 +325,193 @@ app.get("/privacy", (req, res) => {
   `);
 });
 
+app.get("/terms", (req, res) => {
+  res.type("html").send(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10080f">
+  <title>Terms of Service | AFTERHOURS</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #10080f;
+      color: #f9eaf3;
+      font-family: Arial, sans-serif;
+      line-height: 1.8;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 40px;
+      background: #1b101a;
+      border: 1px solid #66334f;
+      border-radius: 20px;
+    }
+
+    h1 {
+      color: #ff91c3;
+      text-align: center;
+      font-size: 36px;
+    }
+
+    h2 {
+      color: #ff91c3;
+      margin-top: 30px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #c9a4b9;
+    }
+
+    a {
+      color: #ff91c3;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #b99aaa;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 15px;
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+
+    <h1>୨୧ AFTERHOURS</h1>
+    <p class="subtitle">TERMS OF SERVICE</p>
+    <p class="subtitle">
+      Last updated: October 13, 2026
+    </p>
+
+    <h2>1. Acceptance of Terms</h2>
+    <p>
+      By accessing or using the AFTERHOURS
+      Discord verification service, you agree
+      to these Terms of Service.
+      If you do not agree, please do not use
+      the verification service.
+    </p>
+
+    <h2>2. About Our Service</h2>
+    <p>
+      AFTERHOURS provides a Discord OAuth2
+      identity verification service.
+      The service allows users to authenticate
+      their Discord identity through Discord.
+    </p>
+
+    <h2>3. Eligibility</h2>
+    <p>
+      You must meet Discord's applicable
+      minimum age requirements and comply
+      with Discord's Terms of Service.
+    </p>
+
+    <h2>4. User Responsibilities</h2>
+    <p>
+      You agree to use the service responsibly,
+      provide authorization through your own
+      Discord account, and follow applicable
+      Discord policies and community rules.
+    </p>
+
+    <h2>5. Prohibited Activities</h2>
+    <p>
+      Users may not abuse the verification
+      system, impersonate others, attempt
+      unauthorized access, or interfere
+      with the service's operation.
+    </p>
+
+    <h2>6. Verification</h2>
+    <p>
+      Authentication confirms the Discord
+      identity associated with the account
+      used to authorize the service.
+      It does not independently confirm
+      a person's real-world identity.
+    </p>
+
+    <h2>7. Availability</h2>
+    <p>
+      We aim to keep the verification
+      service available but cannot
+      guarantee uninterrupted operation.
+      Maintenance, technical problems,
+      or third-party outages may affect
+      availability.
+    </p>
+
+    <h2>8. Privacy</h2>
+    <p>
+      Information processed through our
+      verification service is described
+      in our
+      <a href="/privacy">Privacy Policy</a>.
+    </p>
+
+    <h2>9. Service Restrictions</h2>
+    <p>
+      We may restrict access to the service
+      when reasonably necessary to protect
+      its security, prevent abuse, or comply
+      with applicable requirements.
+    </p>
+
+    <h2>10. Changes to These Terms</h2>
+    <p>
+      We may update these Terms of Service.
+      Updated terms will be published
+      on this page.
+    </p>
+
+    <h2>11. Contact</h2>
+    <p>
+      For questions about these terms,
+      contact the AFTERHOURS moderation
+      team through our Discord community.
+    </p>
+
+    <p>
+      <a href="https://discord.gg/4zxdjFF5K">
+        Join AFTERHOURS Discord
+      </a>
+    </p>
+
+    <footer>
+      <p>© 2026 AFTERHOURS</p>
+      <p>
+        <a href="/">Home</a> ·
+        <a href="/privacy">Privacy Policy</a> ·
+        <a href="/terms">Terms of Service</a>
+      </p>
+    </footer>
+
+  </main>
+</body>
+</html>
+  `);
+});
+
 app.listen(PORT, "0.0.0.0", () => console.log(`AFTERHOURS site listening on ${PORT}`));
